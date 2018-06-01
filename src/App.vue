@@ -5,6 +5,8 @@
     <survey-input-text :question="questionTest" :placeholder="placeholder" />
     <survey-input-select :question="questionSelect" :options="options"></survey-input-select>
     <survey-input-radio :question="questionReadio" :radios="radios"></survey-input-radio>
+    <!-- <custom-input v-model="searchText"></custom-input> 的具体实现-->
+    <custom-input :value="searchText" @input="searchText = $event"></custom-input>
   </div>
 </template>
 
@@ -13,14 +15,22 @@
 import SurveyInputText from './components/SurveyInputText';
 import SurveyInputSelect from './components/SurveyInputSelect';
 import SurveyInputRadio from './components/SurveyInputRadio';
+import CustomInput from './components/CustomInput';
 
 export default {
   name: 'App',
   components: {
+    CustomInput,
     SurveyInputText,
     SurveyInputSelect,
     SurveyInputRadio
   },
+  // props: {
+  //   value: {
+  //     type: String,
+  //     default: ''
+  //   }
+  // },
   data: function() {
     return {
       questionTest: '1. Do you use Vue.js ?',
@@ -28,7 +38,8 @@ export default {
       questionReadio: '3. Which backend is better ?',
       placeholder: 'e.g. John Smith',
       options: ['Vue', 'Reactjs', 'Angular'],
-      radios: ['Nodejs', 'J2EE', 'Golang']
+      radios: ['Nodejs', 'J2EE', 'Golang'],
+      searchText: 'Parent Value'
     };
   }
 };
