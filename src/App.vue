@@ -6,6 +6,7 @@
     <survey-input-select :question="questionSelect" :options="options"></survey-input-select>
     <survey-input-radio :question="questionReadio" :radios="radios"></survey-input-radio>
     <!-- <custom-input v-model="searchText"></custom-input> 的具体实现-->
+    <!--  -->
     <custom-input :value="searchText" @input="searchText = $event"></custom-input>
   </div>
 </template>
