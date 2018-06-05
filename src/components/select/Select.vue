@@ -2,11 +2,11 @@
 <template>
   <div class="select">
     <div class="inner">
-      <div class="innerWrapper" @click="showOptions = !showOptions">
+      <div class="innerWrapper" @click.stop="showOptions = !showOptions">
         <input type="text" readonly placeholder="请选择菜品" :value="selectedItem">
         <span class="dropdown"></span>
       </div>
-      <ul class="options" v-show="showOptions" v-clickOut="test">
+      <ul class="options" v-show="showOptions" v-clickout="test">
         <li v-for="(item, index) in options" :key="index" @click.stop="choose(item.value)">{{item.value}}</li>
       </ul>
     </div>
@@ -44,7 +44,6 @@ export default {
       this.showOptions = false;
     },
     test() {
-      // console.log('This is a test function invoked by custom directive');
       this.showOptions = false;
     }
   },
@@ -55,12 +54,8 @@ export default {
   //   });
   // }
   directives: {
-    clickOut: {
+    clickout: {
       bind: function(el, binding) {
-        // console.log('el =>=>=>=>=>=>=>', el);
-        // console.log('binding.name =>=>=>=>=>', binding.name);
-        // console.log('binding.expression =>=>=>=>=>', binding.expression);
-        // console.log('binding.value =>=>=>=>=>', binding.value);
         document.addEventListener('click', function(e) {
           if (el.contains(e.target)) return false;
           if (binding.expression) {
@@ -68,7 +63,6 @@ export default {
           }
         });
       }
-      // unbind: function(el) {}
     }
   }
 };
