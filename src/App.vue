@@ -6,8 +6,14 @@
     <survey-input-select :question="questionSelect" :options="options"></survey-input-select>
     <survey-input-radio :question="questionReadio" :radios="radios"></survey-input-radio>
     <!-- <custom-input v-model="searchText"></custom-input> 的具体实现-->
-    <!--  -->
+    <!-- <custom-input :value="searchText" @input="searchText = arguments[0]"></custom-input> -->
     <custom-input :value="searchText" @input="searchText = $event"></custom-input>
+    <br/>
+    <custom-select />
+    <br/>
+    <survey-input-text :question="questionTest" :placeholder="placeholder" />
+    <survey-input-select :question="questionSelect" :options="options"></survey-input-select>
+    <survey-input-radio :question="questionReadio" :radios="radios"></survey-input-radio>
   </div>
 </template>
 
@@ -17,11 +23,13 @@ import SurveyInputText from './components/SurveyInputText';
 import SurveyInputSelect from './components/SurveyInputSelect';
 import SurveyInputRadio from './components/SurveyInputRadio';
 import CustomInput from './components/CustomInput';
+import CustomSelect from './components/select/Select';
 
 export default {
   name: 'App',
   components: {
     CustomInput,
+    CustomSelect,
     SurveyInputText,
     SurveyInputSelect,
     SurveyInputRadio

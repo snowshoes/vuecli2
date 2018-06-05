@@ -61,8 +61,12 @@ module.exports = {
         loader: 'json'
       },
       {
+        test: /\.sass$/,
+        loader: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
+      },
+      {
         test: /\.scss$/,
-        loader: 'style!css!sass?sourceMap'
+        loader: ['vue-style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.pug$/,
