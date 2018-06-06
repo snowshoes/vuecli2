@@ -13,6 +13,7 @@
     <br/>
     <survey-input-text :question="questionTest" :placeholder="placeholder" />
     <survey-input-select :question="questionSelect" :options="options"></survey-input-select>
+    <custom-select />
     <survey-input-radio :question="questionReadio" :radios="radios"></survey-input-radio>
   </div>
 </template>

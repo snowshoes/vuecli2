@@ -1,12 +1,12 @@
 <!-- https://juejin.im/post/5b03e610f265da0b873ad64e -->
 <template>
   <div class="select">
-    <div class="inner">
-      <div class="innerWrapper" @click.stop="showOptions = !showOptions">
+    <div class="inner" v-clickout="test">
+      <div class="innerWrapper" @click="showOptions = !showOptions">
         <input type="text" readonly placeholder="请选择菜品" :value="selectedItem">
         <span class="dropdown"></span>
       </div>
-      <ul class="options" v-show="showOptions" v-clickout="test">
+      <ul class="options" v-show="showOptions">
         <li v-for="(item, index) in options" :key="index" @click.stop="choose(item.value)">{{item.value}}</li>
       </ul>
     </div>
